@@ -76,7 +76,7 @@ namespace Dwarfs_Project
 					
 					
 					
-			WelcomeMessage();
+			SolakSim.WelcomeMessage();
 			int numberOfKills = Convert.ToInt32(Console.ReadLine());
 			Console.WriteLine("At what team size?");
 			int teamSize = Convert.ToInt32(Console.ReadLine());
@@ -331,10 +331,10 @@ namespace Dwarfs_Project
 			uncDragonstones.CalculateValue();
 
 					
-					commonsValue = (coins.DropValue + kwuarm.DropValue + battleStaff.DropValue + onyxBTips.DropValue + hydrixBTips.DropValue + sirenicScales.DropValue + tinySalv.DropValue + saradominWines.DropValue + crushedNests.DropValue + cadantine.DropValue + baniteStoneSp.DropValue + LightAnimicaSpirits.DropValue + blackDragonhide.DropValue + irit.DropValue + uncOnyx.DropValue + uncDragonstones.DropValue);
+			commonsValue = (coins.DropValue + kwuarm.DropValue + battleStaff.DropValue + onyxBTips.DropValue + hydrixBTips.DropValue + sirenicScales.DropValue + tinySalv.DropValue + saradominWines.DropValue + crushedNests.DropValue + cadantine.DropValue + baniteStoneSp.DropValue + LightAnimicaSpirits.DropValue + blackDragonhide.DropValue + irit.DropValue + uncOnyx.DropValue + uncDragonstones.DropValue);
 
-           		 Console.WriteLine($"{coins.Name}: {coins.DropAmount}");
-           		 Console.WriteLine($"{kwuarm.Name}: {kwuarm.DropAmount}");
+			Console.WriteLine($"{coins.Name}: {coins.DropAmount}");
+			Console.WriteLine($"{kwuarm.Name}: {kwuarm.DropAmount}");
 			Console.WriteLine($"{mediumSalvage.Name}: {mediumSalvage.DropAmount}");
 			Console.WriteLine($"{battleStaff.Name}: {battleStaff.DropAmount}");
 			Console.WriteLine($"{onyxBTips.Name}: {onyxBTips.DropAmount}");
@@ -367,10 +367,10 @@ namespace Dwarfs_Project
 			}
 								
 			static void WelcomeMessage()
-				{
-					Console.WriteLine("Welcome to Jackson's Solak Kill Simulator");
-					Console.WriteLine("How many kills would you like to Simulate?");
-				}
+			{
+				Console.WriteLine("Welcome to Jackson's Solak Kill Simulator");
+				Console.WriteLine("How many kills would you like to Simulate?");
+			}
 
 	}		
 }
