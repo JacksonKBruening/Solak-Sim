@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,16 +6,27 @@ namespace Dwarfs_Project
 {
     public class Drop
     {
-        public int DropType { get; set; } // For now I made this an int type, but I reccomend looking into enum types later on and implementing this as an enum type
+        public float DropValue { get; set; } // Value of Drop
+        
 
-        public int Rarity { get; set; }  // again make this into an enum type in the future
+        public float DropAmount { get; set; }  // Amount of Drop
 
-        public string Name { get; set; } // These get; set are shortcuts for getting/setting values, so you don't have to make a fancy function just to get/set these variables.
+        public int ValueModifier { get; private set; } // The current value of 1x The item
 
+        public string Name { get; set; } //Name of Drop
 
-        public int GetDropCount()
+        public Drop(string name , int valMod)
         {
-            return 0;
+            Name = name;
+            DropValue = 0;
+            DropAmount = 0;
+            ValueModifier = valMod;
+        }
+
+        public void CalculateValue()
+        {
+            DropValue = (DropAmount * ValueModifier) / 1000000;
+
         }
     }
 }
