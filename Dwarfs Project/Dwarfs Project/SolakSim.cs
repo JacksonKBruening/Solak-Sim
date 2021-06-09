@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace System
+namespace Dwarfs_Project
 
 {
 	public class SolakSim
@@ -22,77 +22,64 @@ namespace System
 					 */
 
 					/*Basic Variables*/
-					bool logComplete = false;
-					int logCompletionKC = 0;
+			bool logComplete = false;
+			int logCompletionKC = 0;
 
 					/* Slamjam note: Don't use object names e.g int, random, etc when naming your classes.  I've named this class something else for you already, that's probably why it didn't work.*/
-					Random random = new Random();
+			Random random = new Random();
 
 					/*Pet Threshold*/
-					int petThresh = 1;
+			int petThresh = 1;
+
+			/*Common Drop Variables*/
+
+			Drop coins = new Drop("Coins", 1);
+			Drop kwuarm = new Drop("Kwuarms",15176);
+			Drop mediumSalvage = new Drop("Medium Rune Salvages",22631 );
+			Drop battleStaff = new Drop("Battlestaffs",3150);
+			Drop onyxBTips = new Drop("Onyx Bolt Tips",7563);
+			Drop hydrixBTips = new Drop("Hydrix Bolt Tips",41050);
+			Drop sirenicScales = new Drop("Sirenic Scales",428784);
+			Drop tinySalv = new Drop("Tiny Rune Salvage",6732);
+			Drop saradominWines = new Drop("Saradomin Wines",112318);
+			Drop crushedNests = new Drop("Crushed Nest",3576);
+			Drop cadantine = new Drop("Cadantines",5747);
+			Drop baniteStoneSp = new Drop("Banite Stone Spirits",4465);
+			Drop LightAnimicaSpirits = new Drop("Light Animica Stone Spirits",4453);
+			Drop blackDragonhide = new Drop("Black Dragonhide",2397);
+			Drop irit = new Drop("Irits",3357);
+			Drop uncOnyx = new Drop("Uncut Onyx",3289241);
+			Drop uncDragonstones = new Drop("Uncut Dragonstones",9427);
+
+
+			/*Rare Drop Variables*/
+			float mainHandBowSplits = 0;
+			float offHandBowSplits = 0;
+			float mainHandBowPersonal = 0;
+			float offHandBowPersonal = 0;
+			float grimPersonal = 0;
+			float grimSplits = 0;
+			float mStaffs = 0;
+			float pMushroom = 0;
+			float cinders = 0;
+			float ritualShard = 0;
+			float grimPages = 0;
+			float sollyPet = 0;
+
+
+
+			/*Value Variables*/
+			float uniqueValue = 0;
+			float commonsValue = 0;
 					
-					/*Rare Drop Variables*/
-					float mainHandBowSplits = 0;
-					float offHandBowSplits = 0;
-					float mainHandBowPersonal = 0;
-					float offHandBowPersonal = 0;
-					float grimPersonal = 0;
-					float grimSplits = 0;
-					float mStaffs = 0;
-					float pMushroom = 0;
-					float cinders = 0;
-					float ritualShard = 0;
-					float grimPages = 0;
-					float sollyPet = 0;
-					
-					/*Common Drop Variables*/
-					float coinDrop = 0;
-					float kwuarmDrop = 0;
-					float medSalvage = 0;
-					float bStaffs = 0;
-					float onyxTips = 0;
-					float hydrixTips = 0;
-					float sirenicScale = 0;
-					float tinySalvage = 0;
-					float saraWines = 0;
-					float cruishedNest = 0;
-					float cadDrop = 0;
-					float baniteSpirits = 0;
-					float liteAnimaSpirits = 0;
-					float blackDHide = 0;
-					float iritDrop = 0;
-					float uncutOnyx = 0;
-					float uncutDStones = 0;
-					
-					/*Value Variables*/
-					float uniqueValue = 0;
-					float commonsValue = 0;
-					
-					float mhBowValue = 0;
-					float ohBowValue = 0;
-					float grimValue = 0;
-					float staffValue = 0;
-					float shroomValue = 0;
-					float cinderValue = 0;
-					float shardValue = 0;
-					float pageValue = 0;
-					float coinValue = 0;
-					float kwuarmValue = 0;
-					float mSalvValue = 0;
-					float bStaffValue = 0;
-					float onTipValue = 0;
-					float hyTipValue = 0;
-					float scaleValue = 0;
-					float tnSalvValue = 0;
-					float winesValue = 0;
-					float nestValue = 0;
-					float cadValue = 0;
-					float baniteValue = 0;
-					float liteAnimaValue = 0;
-					float dHideValue = 0;
-					float iritValue = 0;
-					float onyxValue = 0;
-					float dStoneValue = 0;
+			float mhBowValue = 0;
+			float ohBowValue = 0;
+			float grimValue = 0;
+			float staffValue = 0;
+			float shroomValue = 0;
+			float cinderValue = 0;
+			float shardValue = 0;
+			float pageValue = 0;
 					
 					
 					
@@ -226,87 +213,87 @@ namespace System
 						{
 							case 0 :
 								//coins
-								coinDrop = coinDrop + (dropRandomizer%151512) + 748333;
+								coins.DropAmount = coins.DropAmount + (dropRandomizer%151512) + 748333;
 								break;
 								
 							case 1 :
-								//Kwuarm
-								kwuarmDrop = kwuarmDrop + (dropRandomizer%46) + 155;
+						//Kwuarm
+								kwuarm.DropAmount = kwuarm.DropAmount + (dropRandomizer%46) + 155;
 								break;
 								
 							case 2 :
-								//Med Salvage
-								medSalvage = medSalvage + (dropRandomizer%16) + 30 ;
+						//Med Salvage
+								mediumSalvage.DropAmount = mediumSalvage.DropAmount + (dropRandomizer%16) + 30 ;
 								break;
 								
 							case 3 :
-								//BattleStaff
-								bStaffs = bStaffs + (dropRandomizer%51) + 75;
+						//BattleStaff
+								battleStaff.DropAmount = battleStaff.DropAmount + (dropRandomizer%51) + 75;
 								break;
 								
 							case 4 :
-								//Onyx Bolt Tips
-								onyxTips = onyxTips + (dropRandomizer%45) +128 ;
+						//Onyx Bolt Tips
+								onyxBTips.DropAmount = onyxBTips.DropAmount + (dropRandomizer%45) +128 ;
 								break;
 								
 							case 5 :
 								//Hydrix Bolt Tips
-								hydrixTips = hydrixTips + (dropRandomizer%84) + 100;
+								hydrixBTips.DropAmount = hydrixBTips.DropAmount + (dropRandomizer%84) + 100;
 								break;
 								
 							case 6 :
 								//Sirenic Scale
-								sirenicScale = sirenicScale + (dropRandomizer%3) + 3;
+								sirenicScales.DropAmount = sirenicScales.DropAmount + (dropRandomizer%3) + 3;
 								break;
 								
 							case 7 :
 								//Tiny Salvage
-								tinySalvage = tinySalvage + (dropRandomizer%57) + 29;
+								tinySalv.DropAmount = tinySalv.DropAmount + (dropRandomizer%57) + 29;
 								break;
 								
 							case 8 :
 								//Sara Wines
-								saraWines = saraWines + (dropRandomizer%11) + 15;
+								saradominWines.DropAmount = saradominWines.DropAmount + (dropRandomizer%11) + 15;
 								break;
 								
 							case 9 :
 								//Crushed Nest
-								cruishedNest = cruishedNest + (dropRandomizer%51) + 200;
+								crushedNests.DropAmount = crushedNests.DropAmount + (dropRandomizer%51) + 200;
 								break;
 								
 							case 10 :
 								//Cadantine
-								cadDrop = cadDrop + (dropRandomizer%50) + 151;
+								cadantine.DropAmount = cadantine.DropAmount + (dropRandomizer%50) + 151;
 								break;
 								
 							case 11 :
 								//Banite Spirits
-								baniteSpirits = baniteSpirits + (dropRandomizer%55) + 50;
+								baniteStoneSp.DropAmount = baniteStoneSp.DropAmount + (dropRandomizer%55) + 50;
 								break;
 								
 							case 12 :
 								//Light Animica Spirits
-								liteAnimaSpirits = liteAnimaSpirits + (dropRandomizer%65) + 40;
+								LightAnimicaSpirits.DropAmount = LightAnimicaSpirits.DropAmount + (dropRandomizer%65) + 40;
 								break;
 								
 							case 13 :
 								//Black Dragonhide
-								blackDHide = blackDHide + (dropRandomizer%90) + 252;
+								blackDragonhide.DropAmount = blackDragonhide.DropAmount + (dropRandomizer%90) + 252;
 								break;
 								
 							case 14 :
 								//Irit
-								iritDrop = iritDrop + (dropRandomizer%45) + 156;
+								irit.DropAmount = irit.DropAmount + (dropRandomizer%45) + 156;
 								break;
 								
 							case 15 :
 								//Onyx
-								uncutOnyx = uncutOnyx + (dropRandomizer%2) + 1;
+								uncOnyx.DropAmount = uncOnyx.DropAmount + (dropRandomizer%2) + 1;
 								break;
 								
 							case 16 :
 								//Dragonstone
-								uncutDStones = uncutDStones + (dropRandomizer%26) + 75;
+								uncDragonstones.DropAmount = uncDragonstones.DropAmount + (dropRandomizer%26) + 75;
 								break;
 							
 						}
@@ -315,7 +302,6 @@ namespace System
 						if (mainHandBowPersonal >= 1 && offHandBowPersonal >= 1 && grimPersonal >= 1 && mStaffs >= 1 && pMushroom >=1 && grimPages >=1 && sollyPet >= 1 && !logComplete)
 						{
 							logCompletionKC = i;
-							//Console.WriteLine($"Congratulations you have completed the So-Lacking in drops feat at killcount {logCompletionKC}!");
 							logComplete = true;
 						}
 						
@@ -332,44 +318,45 @@ namespace System
 					pageValue = (grimPages * 6);
 					
 					uniqueValue = mhBowValue + ohBowValue + grimValue + staffValue + shardValue + cinderValue + shardValue + pageValue;
-					
-					coinValue = (coinDrop/1000000);
-					kwuarmValue = ((kwuarmDrop * 15176)/1000000);
-					mSalvValue = ((medSalvage * 22631)/1000000);
-					bStaffValue = ((bStaffs * 3150)/1000000);
-					onTipValue = ((onyxTips * 7563)/1000000);
-					hyTipValue = ((hydrixTips * 41050)/1000000);
-					scaleValue = ((sirenicScale * 428784)/1000000);
-					tnSalvValue = ((tinySalvage * 6732)/1000000);
-					winesValue = ((saraWines * 112318)/1000000);
-					nestValue = ((cruishedNest * 3576)/1000000);
-					cadValue = ((cadDrop * 5747)/1000000);
-					baniteValue = ((baniteSpirits * 4455)/1000000);
-					liteAnimaValue = ((liteAnimaSpirits * 4453)/1000000);
-					dHideValue = ((blackDHide * 2397)/1000000);
-					iritValue = ((iritDrop * 3357)/1000000);
-					onyxValue = ((uncutOnyx * 3289241)/1000000);
-					dStoneValue = ((uncutDStones * 9427)/1000000);
-					
-					commonsValue = (coinValue + kwuarmValue + bStaffValue + onTipValue + hyTipValue + scaleValue + tnSalvValue + winesValue + nestValue + cadValue + baniteValue + liteAnimaValue + dHideValue + iritValue + onyxValue + dStoneValue);
 
-					Console.WriteLine($"Coins: {coinDrop}");
-					Console.WriteLine($"Kwuarm: {kwuarmDrop}");
-					Console.WriteLine($"Medium Rune Salvage: {medSalvage}");
-					Console.WriteLine($"Battlestaff: {bStaffs}");
-					Console.WriteLine($"Onyx Bolt Tips: {onyxTips}");
-					Console.WriteLine($"Hydrix Bolt Tips: {hydrixTips}");
-					Console.WriteLine($"Sirenic Scales: {sirenicScale}");
-					Console.WriteLine($"Tiny Rune Salvage: {tinySalvage}");
-					Console.WriteLine($"Saradomin Wines: {saraWines}");
-					Console.WriteLine($"Crushed Nest: {cruishedNest}");
-					Console.WriteLine($"Cadantine: {cadDrop}");
-					Console.WriteLine($"Banite Stone Spirits: {baniteSpirits}");
-					Console.WriteLine($"Light Animica Stone Spirits: {liteAnimaSpirits}");
-					Console.WriteLine($"Black Dragon Hide: {blackDHide}");
-					Console.WriteLine($"Irit: {iritDrop}");
-					Console.WriteLine($"Uncut Onyx: {uncutOnyx}");
-					Console.WriteLine($"Uncut Dragonstone: {uncutDStones} \n");
+			coins.CalculateValue();
+			kwuarm.CalculateValue();
+			mediumSalvage.CalculateValue();
+			battleStaff.CalculateValue();
+			onyxBTips.CalculateValue();
+			hydrixBTips.CalculateValue();
+			sirenicScales.CalculateValue();
+			tinySalv.CalculateValue();
+			saradominWines.CalculateValue();
+			crushedNests.CalculateValue();
+			cadantine.CalculateValue();
+			baniteStoneSp.CalculateValue();
+			LightAnimicaSpirits.CalculateValue();
+			blackDragonhide.CalculateValue();
+			irit.CalculateValue();
+			uncOnyx.CalculateValue();
+			uncDragonstones.CalculateValue();
+
+					
+					commonsValue = (coins.DropValue + kwuarm.DropValue + battleStaff.DropValue + onyxBTips.DropValue + hydrixBTips.DropValue + sirenicScales.DropValue + tinySalv.DropValue + saradominWines.DropValue + crushedNests.DropValue + cadantine.DropValue + baniteStoneSp.DropValue + LightAnimicaSpirits.DropValue + blackDragonhide.DropValue + irit.DropValue + uncOnyx.DropValue + uncDragonstones.DropValue);
+
+            Console.WriteLine($"{coins.Name}: {coins.DropAmount}");
+            Console.WriteLine($"{kwuarm.Name}: {kwuarm.DropAmount}");
+					Console.WriteLine($"{mediumSalvage.Name}: {mediumSalvage.DropAmount}");
+					Console.WriteLine($"{battleStaff.Name}: {battleStaff.DropAmount}");
+					Console.WriteLine($"{onyxBTips.Name}: {onyxBTips.DropAmount}");
+					Console.WriteLine($"{hydrixBTips.Name}: {hydrixBTips.DropAmount}");
+					Console.WriteLine($"{sirenicScales.Name}: {sirenicScales.DropAmount}");
+					Console.WriteLine($"{tinySalv.Name}: {tinySalv.DropAmount}");
+					Console.WriteLine($"{saradominWines.Name}: {saradominWines.DropAmount}");
+					Console.WriteLine($"{crushedNests.Name}: {crushedNests.DropAmount}");
+					Console.WriteLine($"{cadantine.Name}: {cadantine.DropAmount}");
+					Console.WriteLine($"{baniteStoneSp.Name}: {baniteStoneSp.DropAmount}");
+					Console.WriteLine($"{LightAnimicaSpirits.Name}: {LightAnimicaSpirits.DropAmount}");
+					Console.WriteLine($"{blackDragonhide.Name}: {blackDragonhide.DropAmount}");
+					Console.WriteLine($"{irit.Name}: {irit.DropAmount}");
+					Console.WriteLine($"{uncOnyx.Name}: {uncOnyx.DropAmount}");
+					Console.WriteLine($"{uncDragonstones.Name}: {uncDragonstones.DropAmount} \n");
 					Console.WriteLine($"Grimoire Pages: {grimPages}");
 					Console.WriteLine($"Cinderbanes: {cinders}");
 					Console.WriteLine($"Ancient Elven Ritual Shard: {ritualShard}");
