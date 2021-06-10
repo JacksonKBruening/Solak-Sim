@@ -14,61 +14,47 @@ namespace Dwarfs_Project
 			public static void Main(string[] args)
 				{
 
-			/*Basic Variables*/
+					/*Basic Variables*/
 			bool logComplete = false;
 			int logCompletionKC = 0;
-			/* Slamjam note: Don't use object names e.g int, random, etc when naming your classes.  I've named this class something else for you already, that's probably why it didn't work.*/
 			Random random = new Random();
 
-			/*Pet Threshold*/
+					/*Pet Handling*/
 			int petThresh = 1;
+			int sollyPet = 0;
 
 			/*Common Drop Variables*/
 
+			float commonsValue = 0;
+
 			Drop[] commonDrops = new Drop[17];
 			int[] dropValueMod = { 1, 15176, 22631, 3150, 7563, 41050, 428784, 6732, 112318, 3576, 5757, 4465, 4453, 2397, 3357, 3289241, 9427 };
-           		 string[] dropNames = { "Coins", "kwuarms", "Medium Rune Salvage", "Battlestaffs", "Onyx Bolt Tips", "Hydirx Bolt Tips",
-						"Sirenic Scales", "Tiny Rune Salvage", "Saradomin Wines", "Crushed Nests", "Cadantines", "Banite Stone Spirits",
-						"Light Animica Stone Spirits", "Black Dragonhide", "Irits", "Uncut Onyx", "Uncut Dragonstone" };
+            string[] dropNames = { "Coins", "kwuarms", "Medium Rune Salvage", "Battlestaffs", "Onyx Bolt Tips", "Hydirx Bolt Tips",
+									"Sirenic Scales", "Tiny Rune Salvage", "Saradomin Wines", "Crushed Nests", "Cadantines", "Banite Stone Spirits",
+									"Light Animica Stone Spirits", "Black Dragonhide", "Irits", "Uncut Onyx", "Uncut Dragonstone" };
 
 			for (int i = 0; i < commonDrops.Length; i++)
 			{
 				commonDrops[i] = new Drop(dropNames[i], dropValueMod[i]);		
 			}
+			/*Unique Drop Variables*/
 
-
-
-            		/*Rare Drop Variables*/
-            		float mainHandBowSplits = 0;
-			float offHandBowSplits = 0;
-			float mainHandBowPersonal = 0;
-			float offHandBowPersonal = 0;
-			float grimPersonal = 0;
-			float grimSplits = 0;
-			float mStaffs = 0;
-			float pMushroom = 0;
-			float cinders = 0;
-			float ritualShard = 0;
-			float grimPages = 0;
-			float sollyPet = 0;
-
-
-
-			/*Value Variables*/
 			float uniqueValue = 0;
-			float commonsValue = 0;
-					
-			float mhBowValue = 0;
-			float ohBowValue = 0;
-			float grimValue = 0;
-			float staffValue = 0;
-			float shroomValue = 0;
-			float cinderValue = 0;
-			float shardValue = 0;
-			float pageValue = 0;
-					
-					
-					
+
+			Unique[] uniqueDrops = new Unique[8];
+			int[] uniqueValMods = { 950000000, 1600000000, 370000000, 3000000, 4000000, 80000000, 16000000, 6000000 };
+			string[] uniqueName = {"Blightbound Crossbow", "Off-Hand Blightbound Crossbow", "Erethdor's Grimoire", "Merethiel's Stave", "Purple Mushroom", 
+									"Cinderbane Gloves", "Ancient Elven Ritual Shard", "Griomoire Page" };
+
+			for (int i = 0; i < uniqueDrops.Length; i++)
+			{
+				uniqueDrops[i] = new Unique(uniqueName[i], uniqueValMods[i]);
+			}
+						
+			
+			//Main Program Function
+
+
 			SolakSim.WelcomeMessage();
 			int numberOfKills = Convert.ToInt32(Console.ReadLine());
 			Console.WriteLine("At what team size?");
@@ -90,15 +76,16 @@ namespace Dwarfs_Project
 						if (j == 1)
 						{
 							//personal
-							Console.WriteLine($"Congratulations on kill {i} you recieved a personal Main Hand Crossbow!");
-							mainHandBowPersonal++;
+							Console.WriteLine($"Congratulations on kill {i} you recieved a personal {uniqueDrops[0].Name}!");
+							uniqueDrops[0].Personal++;
+							uniqueDrops[0].DropAmount++;
 						}
 						else
 						{
 							//split
-							Console.WriteLine($"Congratulations on kill {i} a member of your team recieved a Main Hand Crossbow!");
-							mainHandBowSplits++;
-									
+							Console.WriteLine($"Congratulations on kill {i} a member of your team recieved a {uniqueDrops[0].Name}!");
+							uniqueDrops[0].DropAmount++;
+
 						}
 								
 					}
@@ -108,14 +95,15 @@ namespace Dwarfs_Project
 						if(j == 1)
 						{
 							//personal
-							Console.WriteLine($"Congratulations on kill {i} you recieved a personal Off Hand Crossbow!");
-							offHandBowPersonal++;
+							Console.WriteLine($"Congratulations on kill {i} you recieved a personal {uniqueDrops[1].Name}!");
+							uniqueDrops[1].Personal++;
+							uniqueDrops[1].DropAmount++;
 						}
 						else
 						{
 							//Split
-							Console.WriteLine($"Congratulations on kill {i} a member of your team recieved a Off Hand Crossbow!");
-							offHandBowSplits++;
+							Console.WriteLine($"Congratulations on kill {i} a member of your team recieved a {uniqueDrops[1].Name}!");
+							uniqueDrops[1].DropAmount++;
 						}
 					}
 					else if(dropRandomizer%400 == 2 || dropRandomizer % 400 == 3) /*Grim Success*/
@@ -123,56 +111,52 @@ namespace Dwarfs_Project
 						if(j == 1)
 						{
 							//Personal
-							Console.WriteLine($"Congratulations on kill {i} you recieved a personal Grimoire!");
-							grimPersonal++;
+							Console.WriteLine($"Congratulations on kill {i} you recieved a personal {uniqueDrops[2].Name}!");
+							uniqueDrops[2].Personal++;
+							uniqueDrops[2].DropAmount++;
 						}
 						else
 						{
 							//Split
-							Console.WriteLine($"Congratulations on kill {i} a member of your team recieved a Grimoire!");
-							grimSplits++;
+							Console.WriteLine($"Congratulations on kill {i} a member of your team recieved a {uniqueDrops[2].Name}!");
+							uniqueDrops[2].DropAmount++;
 						}
 					}
 							
 							
-				}
+				}	
 						
-						
-								
-						
-						
-				/*tertiary "rare" drops*/
-						
+				/*tertiary "rare" drops*/		
 				if (dropRandomizer%500 == 0)
 				{
 					//Staff
-					Console.WriteLine($"Congratulations on kill {i} you recieved a Merethiels Staff!");
-					mStaffs++;
+					Console.WriteLine($"Congratulations on kill {i} you recieved a {uniqueDrops[3].Name}!");
+					uniqueDrops[3].DropAmount++;
 				}
 				if (dropRandomizer%500 == 1)
 				{
 					//Mushroom
-					Console.WriteLine($"Congratulations on kill {i} you recieved a Purple Mushroom!");
-					pMushroom++;
+					Console.WriteLine($"Congratulations on kill {i} you recieved a {uniqueDrops[4].Name}!");
+					uniqueDrops[4].DropAmount++;
 				}
 				if (dropRandomizer%1000 == 2)
 				{
 					//Cinderbanes
-					Console.WriteLine($"Congratulations on kill {i} you recieved a pair of Cinderbanes!");
-					cinders++;
+					Console.WriteLine($"Congratulations on kill {i} you recieved a {uniqueDrops[5].Name}!");
+					uniqueDrops[5].DropAmount++;
 				}
-				if(dropRandomizer%1000 == 3)
+				if (dropRandomizer % 1000 == 3)
 				{
 					//Ancient Elven Ritual Shard
-					Console.WriteLine($"Congratulations on kill {i} you recieved an Ancient Elven Ritual Shard!");
-					ritualShard++;
+					Console.WriteLine($"Congratulations on kill {i} you recieved a {uniqueDrops[6].Name}!");
+					uniqueDrops[6].DropAmount++;
 				}
-						
+
 				/*Pages*/
-				if(dropRandomizer%4 == 0)
+				if (dropRandomizer%4 == 0)
 				{
 					//Pages
-					grimPages = grimPages + (dropRandomizer%2) + 1;
+					uniqueDrops[7].DropAmount += (dropRandomizer%2) + 1;
 				}
 						
 				/*Pet Chances and Thresholds*/
@@ -285,7 +269,7 @@ namespace Dwarfs_Project
 				}
 						
 				/*Log Completion*/
-				if (mainHandBowPersonal >= 1 && offHandBowPersonal >= 1 && grimPersonal >= 1 && mStaffs >= 1 && pMushroom >=1 && grimPages >=1 && sollyPet >= 1 && !logComplete)
+				if (uniqueDrops[0].Personal >= 1 && uniqueDrops[1].Personal >= 1 && uniqueDrops[2].Personal >= 1 && uniqueDrops[3].DropAmount >= 1 && uniqueDrops[4].DropAmount >= 1 && uniqueDrops[5].DropAmount >= 1 && sollyPet >= 1 && !logComplete)
 				{
 					logCompletionKC = i;
 					logComplete = true;
@@ -293,43 +277,33 @@ namespace Dwarfs_Project
 						
 			}
 					
-			/*Value Calculations*/
-			mhBowValue = (mainHandBowPersonal + mainHandBowSplits) * (950/teamSize);
-			ohBowValue = (offHandBowPersonal + offHandBowSplits) * (1600/teamSize);
-			grimValue = (grimPersonal + grimSplits) * (370/teamSize);
-			staffValue = (mStaffs * 3);
-			shroomValue = (pMushroom * 4);
-			cinderValue = (cinders * 81);
-			shardValue = (ritualShard * 16);
-			pageValue = (grimPages * 6);
-				
-			uniqueValue = mhBowValue + ohBowValue + grimValue + staffValue + shardValue + cinderValue + shardValue + pageValue;
-
 			for (int i = 0; i < commonDrops.Length; i++)
 			{
 				commonDrops[i].CalculateValue();
-			}
-
-			for (int i = 0; i < commonDrops.Length; i++)
-			{
 				commonsValue += commonDrops[i].DropValue;
-			}
-
-			for (int i = 0; i < commonDrops.Length; i++)
-			{
 				Console.WriteLine($"{commonDrops[i].Name}: {commonDrops[i].DropAmount}");
 			}
 
-			Console.WriteLine("/n");
-			Console.WriteLine($"Grimoire Pages: {grimPages}");
-			Console.WriteLine($"Cinderbanes: {cinders}");
-			Console.WriteLine($"Ancient Elven Ritual Shard: {ritualShard}");
-			Console.WriteLine($"Meritiel Staff: {mStaffs}");
-			Console.WriteLine($"Purple Mushroom: {pMushroom}");
-			Console.WriteLine($"Main Hand Crossbow Splits(including personals): {mainHandBowPersonal + mainHandBowSplits}");
-			Console.WriteLine($"Off Hand Crossbow Splits(including personals): {offHandBowPersonal + offHandBowSplits}");
-			Console.WriteLine($"Grimoire(including personals): {grimPersonal + grimSplits}");
-			Console.WriteLine($"You would have recieved {sollyPet} Pets!");
+			Console.WriteLine();
+
+			for (int i = 0; i < uniqueDrops.Length; i++)
+			{
+				uniqueDrops[i].CalculateValue();
+				uniqueDrops[i].DropValue = (uniqueDrops[i].DropValue / teamSize);
+				uniqueValue += uniqueDrops[i].DropValue;
+				if (i < 3)
+				{
+					Console.WriteLine($"{uniqueDrops[i].Name} (Personals): {uniqueDrops[i].DropAmount} ({uniqueDrops[i].Personal})");
+				}
+				else 
+				{
+					Console.WriteLine($"{uniqueDrops[i].Name}: {uniqueDrops[i].DropAmount}");
+				}
+			}
+
+			Console.WriteLine();
+
+			Console.WriteLine($"You would have recieved {sollyPet} Pet(s)!");
 			Console.WriteLine($"Your total value from unique drops is {uniqueValue}M! ");
 			Console.WriteLine($"Your total value from common drops is {commonsValue}M! ");
 			Console.WriteLine($"Your average GP gained per kill was {(uniqueValue + commonsValue)/numberOfKills}M! ");
