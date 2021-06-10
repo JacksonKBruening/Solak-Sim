@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dwarfs_Project
+namespace Solak_Project
 {
     public class Unique : Drop
     {
