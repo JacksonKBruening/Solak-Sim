@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace Solak_Project
 
 {
@@ -307,7 +308,11 @@ namespace Solak_Project
 			Console.WriteLine($"Your total value from unique drops is {uniqueValue}M! ");
 			Console.WriteLine($"Your total value from common drops is {commonsValue}M! ");
 			Console.WriteLine($"Your average GP gained per kill was {(uniqueValue + commonsValue)/numberOfKills}M! ");
-			Console.WriteLine($"Congratulations you have completed the So-Lacking in drops feat at killcount {logCompletionKC}!");
+
+			if (logComplete)
+			{
+				Console.WriteLine($"Congratulations you have completed the So-Lacking in drops feat at killcount {logCompletionKC}!");
+			}
 
 			}
 								
